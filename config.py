@@ -6,9 +6,9 @@ complete_column_names = ["Team Name", "Name", "League", "Wins", "Losses", "Point
 
 email_column_names = ["Team Name", "Name", "League", "Wins", "Losses", "Points For", "Points Against"]
 
-league_ids = ["1131625", "190564", "340459", "564177", "829152", "733842", "703552", "230133", "1342211"]
+league_ids = ["435399", "687576", "436480", "717708", "441275", "327657", "296941", "587757", "594694"]
 
-output_dir = "C:/Users/student/Desktop/fantasy/2022/output/"
+output_dir = "C:/Users/student/Desktop/fantasy/2023/output/"
 
 team_names_df = pd.read_csv('team_names.csv')
 team_names = team_names_df.set_index('Team Name')['Name'].to_dict()

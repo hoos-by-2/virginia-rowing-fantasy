@@ -11,7 +11,7 @@ class FantasyStandings(object):
     analytics, and another with basic info to be emailed out). See config.py to set default values.
     """
 
-    def __init__(self, current_week: int, game_id="414", league_ids=league_ids, credentials_path="credentials"):
+    def __init__(self, current_week: int, game_id="423", league_ids=league_ids, credentials_path="credentials"):
         self.current_week = current_week
         self.game_id = game_id
         self.league_ids = league_ids
@@ -68,12 +68,13 @@ class FantasyStandings(object):
 
         league_name = session.get_league_metadata().name
         week = session.get_league_metadata().current_week
-        if week != self.current_week:
+        if week-1 != self.current_week:
             print("Passed in week number does not match week number from data!")
         league_standings = session.get_league_standings()
         for t in (league_standings.teams):
             team = t["team"]
             team_name = team.name.decode("utf-8")
+            team_name = team_name.replace("❤", "").replace("ü", "u")
             if team_name in team_names.keys():
                 manager_name = team_names[team_name]
             else:
@@ -83,6 +84,7 @@ class FantasyStandings(object):
                     manager_name = team.managers["manager"].nickname
                 print("UPDATE TEAM NAME: %s, %s" % (team_name, manager_name))
 
+            manager_name = manager_name.replace("*", "")
             wins = team.team_standings.outcome_totals.wins
             losses = team.team_standings.outcome_totals.losses
             if team.team_standings.outcome_totals.ties != 0:
@@ -104,7 +106,7 @@ class FantasyStandings(object):
                    "Roster Moves": roster_moves, "Number of Trades": trades}
             self.complete_standings.loc[len(self.complete_standings.index)] = row
 
-        print(f"Retreived standings for {league_name}")
+        print(f"Retrieved standings for {league_name}")
 
     def get_extreme_games(self, session):
         """
