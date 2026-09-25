@@ -1,0 +1,43 @@
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "vra-fantasy"
+version = "0.1.0"
+description = "Aggregates weekly Yahoo fantasy football standings across the Virginia Rowing alumni leagues."
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "yfpy",
+    "pandas",
+    "pyyaml",
+    "pydantic",
+]
+
+[project.scripts]
+fantasy-standings = "vra_fantasy.cli:main"
+fantasy-game-id = "vra_fantasy.cli:game_id_main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["vra_fantasy*"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+extend-exclude = ["notebooks"]
+
+[tool.ruff.lint]
+select = [
+    "E",   # pycodestyle errors
+    "W",   # pycodestyle warnings
+    "F",   # pyflakes
+    "I",   # isort
+    "UP",  # pyupgrade
+    "B",   # flake8-bugbear
+    "SIM", # flake8-simplify
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

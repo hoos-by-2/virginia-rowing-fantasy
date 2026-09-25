@@ -3,6 +3,15 @@ credentials/
 *.env
 team_names.csv
 
+# Manual scores mode (temporary, while the Yahoo API is unavailable).
+# Local only — see MANUAL_SCORES.md. The screenshots and scores CSV carry real
+# people's names, like team_names.csv, so they must never be committed either.
+MANUAL_SCORES.md
+src/vra_fantasy/manual_scores.py
+tests/test_manual_scores.py
+league_scores_screenshots/
+*_screenshot_scores.csv
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
@@ -36,13 +45,18 @@ Thumbs.db
 *.swp
 *.swo
 
-# Test coverage reports
+# Test and lint caches
 htmlcov/
 .coverage
 .coverage.*
+.pytest_cache/
+.ruff_cache/
 
 # Build artifacts
 build/
 dist/
 *.egg-info/
 .eggs/
+
+# Claude settings
+.claude/

@@ -1,37 +1,17 @@
-game_id: "461"
-week_number: 1
-output_dir: "~/Desktop/fantasy/2025/output"
+# Season-long configuration. Per-run values (the week number) are CLI input:
+# fantasy-standings --week N
+#
+# game_id changes every season; find the new one with: fantasy-game-id
+game_id: "470"
+output_dir: "~/Desktop/fantasy/2026/output"
 team_names_path: "team_names.csv"
-credentials_path: "credentials/"
 league_ids:
-  - "920510" # Barn Szn Pass
-  - "515852"  # 6 U Court
-  - "349625" # Crank City
-  - "635676" # Stump Field 
-  - "521684" # Orange and Blue
-  - "863282" # Eight
-  - "891930" # Champions
-  - "836169" # Lil PP Gang
-complete_column_names:
-  - "Team Name"
-  - "Name"
-  - "League"
-  - "Wins"
-  - "Losses"
-  - "Points For"
-  - "Points Against"
-  - "Point Differential"
-  - "League Rank"
-  - "Streak"
-  - "Draft Position"
-  - "Draft Grade"
-  - "Roster Moves"
-  - "Number of Trades"
-email_column_names:
-  - "Team Name"
-  - "Name"
-  - "League"
-  - "Wins"
-  - "Losses"
-  - "Points For"
-  - "Points Against"
+  - "899478" # Barn Szn Pass
+  - "752879" # 6 U Court
+  - "680474" # Crank City
+  - "520446" # Stump Field
+  - "747310" # Orange and Blue
+  - "881475" # Eight
+  - "910805" # Champions
+  - "862525" # Lil PP Gang
+  - "1594246" # VRA League

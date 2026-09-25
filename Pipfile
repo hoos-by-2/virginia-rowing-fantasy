@@ -3,19 +3,22 @@ url = "https://pypi.org/simple"
 verify_ssl = true
 name = "pypi"
 
+# Runtime dependencies are defined once in pyproject.toml; the editable self-install
+# below makes pipenv resolve them from there. Add/bump runtime deps in pyproject.toml,
+# then run `make lock`.
 [packages]
-pandas = "*"
-numpy = "*"
-yfpy = "*"
-pyyaml = "*"
+vra-fantasy = {path = ".", editable = true}
 
 [dev-packages]
 pytest = "*"
+ruff = "*"
 
 [scripts]
-standings = "python get_fantasy_standings.py"
-unit-test = "pytest"
-lint = "flake8 ."
+standings = "fantasy-standings"
+game-id = "fantasy-game-id"
+test = "pytest"
+lint = "ruff check ."
+format = "ruff format ."
 
 [requires]
-python_version = "3.12"
+python_version = "3.13"
